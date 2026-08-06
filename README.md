@@ -56,3 +56,18 @@ I enjoy learning new technologies and improving my practical skills through hand
 Email: ashperado63@email.com
 
 GitHub: https://github.com/Itsyaboyandoy
+
+---
+
+# 💻 Technical Stack
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=linux,ubuntu,git,github,md,bash,vscode" />
+</p>
+
+- Ubuntu Linux
+- KillerCoda Playground
+- Git
+- GitHub
+- Markdown
+- Command Line Interface (CLI)
