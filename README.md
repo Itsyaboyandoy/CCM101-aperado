@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://github.com/Itsyaboyandoy.jpg" width="180"/>
+<img src="https://github.com/Itsyaboyandoy.png" width="180"/>
 
 # Ashley B. Perado
 
