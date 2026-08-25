@@ -24,11 +24,11 @@ This repository serves as my portfolio for **CCM101 – Cloud Computing**, conta
 
 Each laboratory reflects my progress in:
 
-- Linux
-- Git & GitHub
-- Shell Commands
-- Cloud Computing
-- Documentation
+* Linux
+* Git & GitHub
+* Shell Commands
+* Cloud Computing
+* Documentation
 
 I enjoy learning new technologies and improving my practical skills through hands-on activities.
 
@@ -36,24 +36,25 @@ I enjoy learning new technologies and improving my practical skills through hand
 
 # Skills
 
-- Linux
-- Git
-- GitHub
-- Bash
-- Cloud Computing
-- Networking
+* Linux
+* Git
+* GitHub
+* Bash
+* Cloud Computing
+* Networking
 
 ---
 
 # Laboratory Activities
 
 | Activity | Status |
-|----------|--------|
-| Lab 1 | ✅ |
+| -------- | ------ |
+| Lab 1    | ✅      |
+| Lab 2    | ✅      |
 
 # Contact
 
-Email: ashperado63@email.com
+Email: [ashperado63@email.com](mailto:ashperado63@email.com)
 
 GitHub: https://github.com/Itsyaboyandoy
 
@@ -65,9 +66,9 @@ GitHub: https://github.com/Itsyaboyandoy
   <img src="https://skillicons.dev/icons?i=linux,ubuntu,git,github,md,bash,vscode" />
 </p>
 
-- Ubuntu Linux
-- KillerCoda Playground
-- Git
-- GitHub
-- Markdown
-- Command Line Interface (CLI)
+* Ubuntu Linux
+* KillerCoda Playground
+* Git
+* GitHub
+* Markdown
+* Command Line Interface (CLI)
