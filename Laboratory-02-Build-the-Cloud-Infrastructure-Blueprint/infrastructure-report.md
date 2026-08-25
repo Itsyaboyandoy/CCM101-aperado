@@ -277,28 +277,7 @@ Each command was used to retrieve a specific part of the Linux environment's con
 
 ---
 
-# 📸 12. Investigation Evidence
-
-Screenshots of the KillerCoda terminal investigation are stored in the `screenshots` directory.
-
-Recommended structure:
-
-```text
-Laboratory-02-Build-the-Cloud-Infrastructure-Blueprint/
-│
-└── screenshots/
-    └── system-investigation.png
-```
-
-The screenshot provides visual evidence of the commands and system information collected during the investigation.
-
-### Evidence
-
-![KillerCoda Linux System Investigation](screenshots/system-investigation.png)
-
----
-
-# 🏁 13. Conclusion
+# 🏁 12. Conclusion
 
 The investigation successfully identified the main characteristics of the Linux cloud server provided by KillerCoda.
 
