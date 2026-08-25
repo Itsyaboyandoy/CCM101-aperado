@@ -1,72 +1,24 @@
-# ☁️ Mission 1 — Welcome to the Cloud
+# ☁️ Laboratory 02 — Build the Cloud Infrastructure Blueprint
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Platform-KillerCoda-blue?style=for-the-badge" alt="KillerCoda">
-  <img src="https://img.shields.io/badge/OS-Ubuntu%2024.04-orange?style=for-the-badge&logo=ubuntu&logoColor=white" alt="Ubuntu">
-  <img src="https://img.shields.io/badge/Linux-Kernel%206.8-green?style=for-the-badge&logo=linux&logoColor=white" alt="Linux">
-  <img src="https://img.shields.io/badge/Architecture-x86__64-purple?style=for-the-badge" alt="Architecture">
-</p>
+## Checkpoint 2 — Investigate the Cloud Server
 
-<p align="center">
-  <b>Cloud Computing & Linux Environment Investigation</b><br>
-  <i>CCM 101 — Mission 1</i>
-</p>
+### 📌 Overview
+
+For Checkpoint 2, the Linux environment provided by the **KillerCoda Ubuntu 24.04 Playground** was investigated using terminal commands.
+
+The purpose of this investigation was to identify the cloud server's operating system, kernel, CPU, memory, storage, mounted file systems, hostname, and IP address.
 
 ---
 
-## 📌 Overview
+## 🖥️ 1. Operating System
 
-This repository documents **Mission 1 — Welcome to the Cloud**, completed using the **KillerCoda Ubuntu Linux Playground**.
-
-The objective of this mission was to explore a cloud-based Linux environment and identify its fundamental system resources, including:
-
-* 🐧 Linux distribution
-* ⚙️ Kernel version
-* 🖥️ CPU information
-* 🧠 Memory resources
-* 💾 Disk capacity
-* 🌐 Network configuration
-* 🏷️ Hostname
-* 💻 Linux command-line environment
-
-This activity provides practical experience with Linux administration and cloud computing fundamentals.
-
----
-
-# 🖥️ System Information
-
-| Category                | Information                      |
-| ----------------------- | -------------------------------- |
-| 🐧 **Operating System** | Ubuntu 24.04.4 LTS               |
-| 📦 **Release**          | 24.04                            |
-| 🏷️ **Codename**        | Noble                            |
-| ⚙️ **Kernel**           | 6.8.0-138-generic                |
-| 🏗️ **Architecture**    | x86_64                           |
-| 🖥️ **CPU**             | Intel Xeon E312xx (Sandy Bridge) |
-| 🔢 **CPU Count**        | 1                                |
-| 🚀 **CPU Speed**        | Approximately 2.0 GHz            |
-| 🧠 **Total RAM**        | 1.9 GiB                          |
-| ✅ **Available RAM**     | 1.4 GiB                          |
-| 💾 **Total Disk**       | 19 GB                            |
-| 📂 **Used Disk**        | 5.4 GB                           |
-| 💿 **Available Disk**   | 13 GB                            |
-| 📊 **Disk Usage**       | 30%                              |
-| 🏷️ **Hostname**        | ubuntu                           |
-| 🌐 **IP Address**       | 172.30.1.2 / 172.17.0.1          |
-
----
-
-# 🔎 Environment Investigation
-
-## 1. 🐧 Linux Distribution
-
-The Linux distribution was identified using:
+### Command Used
 
 ```bash
 lsb_release -a
 ```
 
-### Output
+### Result
 
 ```text
 Distributor ID: Ubuntu
@@ -77,19 +29,21 @@ Codename:       noble
 
 ### Finding
 
-The cloud environment is running **Ubuntu 24.04.4 LTS**, with the codename **Noble**.
+The cloud server is running **Ubuntu 24.04.4 LTS**, with the codename **Noble**.
+
+Ubuntu is a Linux-based operating system commonly used for servers, cloud computing, development, and system administration.
 
 ---
 
-## 2. ⚙️ Kernel Version
+## ⚙️ 2. Kernel Version
 
-The Linux kernel was checked using:
+### Command Used
 
 ```bash
 uname -r
 ```
 
-### Output
+### Result
 
 ```text
 6.8.0-138-generic
@@ -97,73 +51,98 @@ uname -r
 
 ### Finding
 
-The environment uses the **6.8.0-138-generic Linux kernel**.
+The Linux environment is running kernel version:
+
+**`6.8.0-138-generic`**
+
+The kernel is the core component of the Linux operating system responsible for managing hardware, memory, processes, and system resources.
 
 ---
 
-## 3. 🖥️ CPU Information
+## 🖥️ 3. CPU Model
 
-CPU information was obtained using:
+### Command Used
 
 ```bash
 lscpu | grep "Model name"
 ```
 
-### Output
+### Result
 
 ```text
-Model name: Intel Xeon E312xx (Sandy Bridge)
-```
-
-The system reports:
-
-```text
-CPU Count: 1
-CPU Speed: Approximately 2.0 GHz
+Model name: Intel Xeon E312xx (Sandy Bridge), IBRS update
 ```
 
 ### Finding
 
-The KillerCoda environment provides a virtualized **Intel Xeon E312xx processor**.
+The cloud server uses an **Intel Xeon E312xx (Sandy Bridge)** processor.
+
+The CPU is a virtualized cloud-server resource provided by the KillerCoda environment.
 
 ---
 
-## 4. 🧠 Memory Information
+## 🔢 4. Number of CPU Cores
 
-Memory usage was checked using:
+### Command Used
+
+```bash
+nproc
+```
+
+### Result
+
+```text
+1
+```
+
+### Finding
+
+The KillerCoda cloud server provides **1 CPU core** to the Linux environment.
+
+The number of CPU cores determines how many processing tasks can be handled concurrently by the system.
+
+---
+
+## 🧠 5. Total RAM
+
+### Command Used
 
 ```bash
 free -h
 ```
 
-### Memory Status
+### Result
 
-| Resource   |  Amount |
-| ---------- | ------: |
-| Total      | 1.9 GiB |
-| Used       | 424 MiB |
-| Free       | 779 MiB |
-| Available  | 1.4 GiB |
-| Swap Total | 1.0 GiB |
-| Swap Used  |     0 B |
+```text
+              total        used        free      shared  buff/cache   available
+Mem:           1.9Gi       424Mi       779Mi       1.1Mi       870Mi       1.4Gi
+Swap:          1.0Gi          0B       1.0Gi
+```
 
 ### Finding
 
-The environment has approximately **1.9 GiB of RAM**, with approximately **1.4 GiB available** during the investigation.
+The cloud server has:
 
-The system also has **1.0 GiB of swap space**, which was not being used at the time of checking.
+* **Total RAM:** 1.9 GiB
+* **Used RAM:** 424 MiB
+* **Free RAM:** 779 MiB
+* **Available RAM:** 1.4 GiB
+* **Total Swap:** 1.0 GiB
+* **Used Swap:** 0 B
+
+The available memory was sufficient for performing the laboratory activities.
 
 ---
 
-## 5. 💾 Disk Space
+## 💾 6. Disk Capacity
 
-Disk usage was checked using:
+### Command Used
 
 ```bash
 df -h
 ```
 
-### Main Filesystem
+### Main Disk Result
 
 ```text
 Filesystem      Size  Used Avail Use% Mounted on
@@ -172,26 +151,57 @@ Filesystem      Size  Used Avail Use% Mounted on
 
 ### Finding
 
-The main filesystem provides approximately:
+The primary disk has:
 
-* **19 GB total storage**
-* **5.4 GB used**
-* **13 GB available**
-* **30% utilization**
+* **Capacity:** 19 GB
+* **Used:** 5.4 GB
+* **Available:** 13 GB
+* **Usage:** 30%
+* **Mounted at:** `/`
 
-This indicates that the environment still has sufficient storage available for the activities in the playground.
+The Linux environment therefore has approximately **19 GB of total disk capacity**.
 
 ---
 
-## 6. 🏷️ Hostname
+## 📂 7. Mounted File Systems
 
-The hostname was checked using:
+### Command Used
+
+```bash
+df -h
+```
+
+### Result
+
+The following mounted file systems were observed:
+
+| File System  | Size | Used | Available | Usage | Mount Point |
+| ------------ | ---: | ---: | --------: | ----: | ----------- |
+| `/dev/vda1`  |  19G | 5.4G |       13G |   30% | `/`         |
+| `tmpfs`      | 191M | 996K |      190M |    1% | `/run`      |
+| `/dev/vda1`  |  19G | 5.4G |       13G |   30% | `/`         |
+| `tmpfs`      | 952M |  84K |      952M |    1% | `/dev/shm`  |
+| `tmpfs`      | 5.0M |   0B |      5.0M |    0% | `/run/lock` |
+| `/dev/vda16` | 881M | 117M |      703M |   15% | `/boot`     |
+| `/dev/vda15` | 105M | 6.2M |       99M |    6% | `/boot/efi` |
+
+### Finding
+
+The environment contains a primary Linux filesystem mounted at `/`, along with temporary filesystems and separate boot partitions.
+
+The main filesystem is `/dev/vda1`, while `/boot` and `/boot/efi` are mounted separately for boot-related system files.
+
+---
+
+## 🏷️ 8. Hostname
+
+### Command Used
 
 ```bash
 hostname
 ```
 
-### Output
+### Result
 
 ```text
 ubuntu
@@ -199,21 +209,23 @@ ubuntu
 
 ### Finding
 
-The hostname assigned to the Linux environment is:
+The hostname of the cloud server is:
 
 **`ubuntu`**
 
+The hostname identifies the Linux system within its environment.
+
 ---
 
-## 7. 🌐 Network Information
+## 🌐 9. IP Address
 
-The IP addresses were checked using:
+### Command Used
 
 ```bash
 hostname -I
 ```
 
-### Output
+### Result
 
 ```text
 172.30.1.2 172.17.0.1
@@ -221,171 +233,77 @@ hostname -I
 
 ### Finding
 
-The environment uses private IP addresses within its cloud/container networking environment.
+The Linux environment has the following IP addresses:
 
-| Interface Information | Address      |
-| --------------------- | ------------ |
-| Private IP            | `172.30.1.2` |
-| Additional Private IP | `172.17.0.1` |
+* **172.30.1.2**
+* **172.17.0.1**
+
+These are private IP addresses used within the KillerCoda cloud/container networking environment.
 
 ---
 
-# 🧰 Commands Used
+# 📊 10. Complete Investigation Summary
 
-The following commands were used during the investigation:
+| Requirement         | Result                                        |
+| ------------------- | --------------------------------------------- |
+| 🐧 Operating System | Ubuntu 24.04.4 LTS                            |
+| ⚙️ Kernel Version   | 6.8.0-138-generic                             |
+| 🖥️ CPU Model       | Intel Xeon E312xx (Sandy Bridge), IBRS update |
+| 🔢 CPU Cores        | 1                                             |
+| 🧠 Total RAM        | 1.9 GiB                                       |
+| 💾 Disk Capacity    | 19 GB                                         |
+| 📂 Main Filesystem  | `/dev/vda1` mounted on `/`                    |
+| 🏷️ Hostname        | ubuntu                                        |
+| 🌐 IP Address       | 172.30.1.2 / 172.17.0.1                       |
+
+---
+
+# 🧰 11. Commands Used
+
+The following commands were used to investigate the cloud server:
 
 ```bash
-# Check Linux distribution
 lsb_release -a
-
-# Check kernel version
 uname -r
-
-# Check CPU information
 lscpu | grep "Model name"
-
-# Check number of CPUs
 nproc
-
-# Check RAM and swap
 free -h
-
-# Check disk usage
 df -h
-
-# Check hostname
 hostname
-
-# Check IP addresses
 hostname -I
 ```
 
----
-
-# 📊 System Resource Summary
-
-```text
-┌──────────────────────────────────────────────┐
-│              UBUNTU CLOUD ENVIRONMENT        │
-├──────────────────────────────────────────────┤
-│ OS           : Ubuntu 24.04.4 LTS            │
-│ Kernel       : 6.8.0-138-generic             │
-│ Architecture : x86_64                        │
-│ CPU          : Intel Xeon E312xx             │
-│ CPU Count    : 1                             │
-│ RAM          : 1.9 GiB                       │
-│ Available    : 1.4 GiB                       │
-│ Storage      : 19 GB                         │
-│ Available    : 13 GB                         │
-│ Hostname     : ubuntu                        │
-└──────────────────────────────────────────────┘
-```
+Each command was used to retrieve a specific part of the Linux environment's configuration.
 
 ---
 
-# 📁 Project Structure
+# 📸 12. Investigation Evidence
 
-The project workspace was created inside the Linux environment.
+Screenshots of the KillerCoda terminal investigation are stored in the `screenshots` directory.
 
-```text
-CCM101-aperado/
-│
-├── 📄 README.md
-│
-├── 📄 system-information.md
-│
-└── 📁 Notes/
-    │
-    └── 📄 about-me.md
-```
-
-### File Descriptions
-
-| File / Folder           | Purpose                                        |
-| ----------------------- | ---------------------------------------------- |
-| `README.md`             | Main project documentation                     |
-| `system-information.md` | Linux environment investigation                |
-| `Notes/`                | Workspace for notes                            |
-| `about-me.md`           | Personal introduction and activity information |
-
----
-
-# 📸 Evidence
-
-The system information was collected directly from the **KillerCoda Ubuntu 24.04 Playground terminal**.
-
-Recommended repository structure for evidence:
+Recommended structure:
 
 ```text
-CCM101-aperado/
-│
-├── README.md
-│
-├── system-information.md
-│
-├── Notes/
-│   └── about-me.md
+Laboratory-02-Build-the-Cloud-Infrastructure-Blueprint/
 │
 └── screenshots/
-    └── system-information.png
+    └── system-investigation.png
 ```
 
-> 💡 **Tip:** Save the screenshot of your KillerCoda terminal as `system-information.png` inside a `screenshots` folder. Then you can display it in this README.
+The screenshot provides visual evidence of the commands and system information collected during the investigation.
 
-Example:
+### Evidence
 
-```markdown
-## 📸 Evidence
-
-![Linux System Information](screenshots/system-information.png)
-```
+![KillerCoda Linux System Investigation](screenshots/system-investigation.png)
 
 ---
 
-# 🎯 Learning Outcomes
+# 🏁 13. Conclusion
 
-After completing this activity, the following skills were practiced:
+The investigation successfully identified the main characteristics of the Linux cloud server provided by KillerCoda.
 
-* ✅ Navigating a Linux cloud environment
-* ✅ Using the Linux command line
-* ✅ Identifying Linux distributions
-* ✅ Checking kernel information
-* ✅ Inspecting CPU resources
-* ✅ Monitoring RAM and swap usage
-* ✅ Checking disk capacity
-* ✅ Identifying hostnames
-* ✅ Checking network addresses
-* ✅ Organizing project files in Linux
-* ✅ Documenting cloud infrastructure information
+The environment is running **Ubuntu 24.04.4 LTS** with the **6.8.0-138-generic kernel**. It provides **one CPU core**, **1.9 GiB of RAM**, and a **19 GB primary disk**. The server's hostname is `ubuntu`, and the environment uses private IP addresses `172.30.1.2` and `172.17.0.1`.
 
----
+The investigation also identified the mounted file systems, including the main root filesystem, temporary filesystems, `/boot`, and `/boot/efi`.
 
-# 🧠 Key Takeaways
-
-This activity demonstrated how basic Linux commands can be used to quickly inspect a cloud computing environment.
-
-The investigation showed that a cloud environment can provide a complete Linux operating system with virtualized CPU, memory, storage, and networking resources. These resources can be inspected and managed through the command line without requiring a graphical interface.
-
-Understanding these commands is an important foundation for **Cloud Computing, Linux Administration, DevOps, Cybersecurity, and System Administration**.
-
----
-
-# 🏁 Conclusion
-
-Mission 1 successfully introduced the Linux cloud environment through the KillerCoda Ubuntu 24.04 Playground.
-
-The investigation identified the operating system, kernel, CPU, memory, disk space, hostname, and network configuration. The activity also provided hands-on experience using essential Linux commands and organizing a project workspace.
-
-This mission establishes the foundation for future cloud computing activities involving **Linux, infrastructure, networking, automation, and cloud services**.
-
----
-
-<p align="center">
-
-### ☁️ Cloud Computing • Linux • Infrastructure
-
-**CCM 101 — Mission 1**
-
-Made with 💻 and ☁️ by **Ashley B. Perado**
-
-</p>
+This checkpoint provided practical experience in using Linux commands to inspect the resources and configuration of a cloud-based server environment.
