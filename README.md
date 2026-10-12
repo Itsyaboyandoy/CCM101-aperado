@@ -20,7 +20,7 @@ Instructor: Cledmar N. Badongen
 
 # 👨‍💻 About
 
-This repository serves as my portfolio for **CCM101 – Cloud Computing**, containing laboratory activities, Linux exercises, Git and GitHub activities, cloud computing research, cloud platform comparisons, Docker exercises, containerization activities, and technical documentation completed throughout the semester.
+This repository serves as my portfolio for **CCM101 – Cloud Computing**, containing laboratory activities, Linux exercises, Git and GitHub activities, cloud computing research, cloud platform comparisons, Docker exercises, containerization activities, object storage deployment, and technical documentation completed throughout the semester.
 
 Each laboratory reflects my progress in understanding and applying cloud computing concepts through hands-on activities.
 
@@ -37,6 +37,8 @@ Each laboratory reflects my progress in understanding and applying cloud computi
 * Docker
 * Containerization
 * Cloud-Native Technologies
+* Cloud Storage
+* Object Storage
 * Technical Documentation
 
 I enjoy learning new technologies and improving my practical skills through hands-on activities and real-world cloud computing exercises.
@@ -59,6 +61,8 @@ I enjoy learning new technologies and improving my practical skills through hand
 * Docker
 * Containers
 * Nginx
+* MinIO
+* Object Storage
 * AWS
 * Microsoft Azure
 * Google Cloud Platform (GCP)
@@ -75,6 +79,7 @@ I enjoy learning new technologies and improving my practical skills through hand
 | Lab 2 | Build the Cloud Infrastructure Blueprint | ✅ |
 | Lab 3 | Multi-Cloud Explorer | ✅ |
 | Lab 4 | The Cloud-Native Engineer | ✅ |
+| Lab 5 | The Cloud Data Engineer | ✅ |
 
 ---
 
@@ -289,6 +294,81 @@ The mapping `-p 8080:80` allowed the Nginx web server inside the container to be
 
 ---
 
+# 🪣 Laboratory 5 – The Cloud Data Engineer
+
+**Mission:** The Cloud Data Engineer
+
+This laboratory focused on cloud storage and how modern applications store large amounts of unstructured data such as photos, videos, and backups. Acting as a cloud data engineer for a photo-sharing client, I deployed an S3-compatible **MinIO** object storage server using Docker on the **KillerCoda Playground**, created a storage bucket, and uploaded a test file to confirm the system worked.
+
+The laboratory combined the Docker skills from Laboratory 4 with cloud storage concepts, including port mapping, environment variables, and managing a service through its web console.
+
+### Activities
+
+* Compared Block Storage, File Storage, and Object Storage
+* Explained why Object Storage suits user-uploaded images
+* Deployed a MinIO object storage server using Docker
+* Set the administrator login using environment variables
+* Mapped the MinIO API port `9000` and the web console port `9001`
+* Verified the running container with `docker ps`
+* Tested the server with a `curl` health check
+* Accessed the MinIO Web Console through KillerCoda port forwarding
+* Created a bucket named `client-photos`
+* Uploaded a sample file to the bucket
+* Troubleshot an image pull error and used a mirror image to continue
+* Documented the deployment using Markdown
+* Added screenshots as laboratory evidence
+
+### 🗄️ Cloud Storage Types
+
+| Storage Type | Description | Primary Use Case | Cloud Provider Example |
+|---|---|---|---|
+| Block Storage | Stores data in fixed-size blocks attached to a server. | Operating systems and databases. | AWS EBS |
+| File Storage | Stores data as files in a shared folder hierarchy. | Shared files across multiple servers. | AWS EFS |
+| Object Storage | Stores data as objects with metadata and unique IDs in buckets. | Photos, videos, and backups at large scale. | AWS S3 |
+
+### 🐳 MinIO Deployment
+
+| Item | Detail |
+|---|---|
+| Server | MinIO (S3-compatible object storage) |
+| Environment | KillerCoda Ubuntu Playground |
+| Container Name | `minio-server` |
+| API Port | `9000` |
+| Web Console Port | `9001` |
+| Bucket Created | `client-photos` |
+
+### ⚠️ Troubleshooting
+
+The image `minio/minio` from the lab instructions could not be pulled because MinIO no longer publishes its container images on Docker Hub. I replaced only the image name with a community mirror of the last official release and kept the ports, environment variables, and server command the same.
+
+### 🪣 Bucket Storage Flow
+
+```text
+User Uploads File
+       ↓
+MinIO Web Console (Port 9001)
+       ↓
+Bucket: client-photos
+       ↓
+Object Stored in MinIO
+```
+
+### Skills Practiced
+
+* Object Storage
+* MinIO
+* Docker
+* Environment Variables
+* Port Mapping
+* Cloud Storage Concepts
+* Troubleshooting
+* Linux
+* Bash
+* Technical Documentation
+* GitHub
+
+---
+
 # 🔄 Virtual Machines vs. Containers
 
 | Category | Virtual Machines | Containers |
@@ -316,11 +396,15 @@ I also learned that AWS, Microsoft Azure, and Google Cloud provide similar core 
 
 Cloud-native technologies such as Docker introduced another approach to application deployment by allowing applications and their dependencies to be packaged into portable containers.
 
+Cloud storage showed me that not all data is stored the same way. Block, file, and object storage each serve different needs, and object storage is well suited for large amounts of unstructured data such as user-uploaded photos because it scales easily and is accessed over the web.
+
 ### Important Cloud Computing Concepts
 
 * Cloud Infrastructure
 * Compute
 * Storage
+* Block, File, and Object Storage
+* Buckets
 * Networking
 * Identity and Access Management
 * Virtual Machines
@@ -353,6 +437,9 @@ This portfolio demonstrates my progression through hands-on cloud computing labo
 ✅ Nginx Container Deployment  
 ✅ Port Mapping  
 ✅ Container Lifecycle Management  
+✅ Cloud Storage Types Research  
+✅ MinIO Object Storage Deployment  
+✅ Bucket Creation and File Upload  
 ✅ Git & GitHub  
 ✅ Technical Documentation  
 
@@ -374,6 +461,7 @@ This portfolio demonstrates my progression through hands-on cloud computing labo
 * **Bash**
 * **Docker**
 * **Nginx**
+* **MinIO**
 * **Amazon Web Services (AWS)**
 * **Microsoft Azure**
 * **Google Cloud Platform (GCP)**
@@ -404,14 +492,24 @@ CCM101-aperado/
 │   ├── reflection.md
 │   └── virtualization-vs-containers.md
 │
+├── Laboratory-05-Cloud-Data-Engineer/
+│   ├── screenshots/
+│   │   ├── minio-deployed.png
+│   │   └── minio-bucket-upload.png
+│   │
+│   ├── README.md
+│   ├── storage-types-research.md
+│   ├── minio-deployment.md
+│   └── reflection.md
+│
 └── README.md
-```
+````
 
 ---
 
 # 🎯 Learning Journey
 
-My CCM101 Cloud Computing portfolio documents my progression from fundamental Linux concepts to cloud infrastructure, multi-cloud environments, and cloud-native technologies.
+My CCM101 Cloud Computing portfolio documents my progression from fundamental Linux concepts to cloud infrastructure, multi-cloud environments, cloud-native technologies, and cloud storage.
 
 ### Learning Progression
 
@@ -429,6 +527,8 @@ Virtual Machines
 Containers & Docker
        ↓
 Cloud-Native Technologies
+       ↓
+Cloud Storage & Object Storage
 ```
 
 Each laboratory has provided hands-on experience that builds upon the previous activities. The progression has helped me develop a broader understanding of how modern cloud infrastructure is designed, deployed, managed, and documented.
@@ -460,5 +560,3 @@ As I complete additional laboratory activities, I will continue improving this p
 **CCM101 – Cloud Computing**
 
 **Ashley B. Perado | BSIT | University of Eastern Pangasinan**
-
-</div>
