@@ -20,7 +20,7 @@ Instructor: Cledmar N. Badongen
 
 # 👨‍💻 About
 
-This repository serves as my portfolio for **CCM101 – Cloud Computing**, containing laboratory activities, Linux exercises, Git and GitHub activities, cloud computing research, cloud platform comparisons, Docker exercises, containerization activities, object storage deployment, multi-container deployment with Docker Compose, and technical documentation completed throughout the semester.
+This repository serves as my portfolio for **CCM101 – Cloud Computing**, containing laboratory activities, Linux exercises, Git and GitHub activities, cloud computing research, cloud platform comparisons, Docker exercises, containerization activities, object storage deployment, multi-container deployment with Docker Compose, system monitoring and observability, and technical documentation completed throughout the semester.
 
 Each laboratory reflects my progress in understanding and applying cloud computing concepts through hands-on activities.
 
@@ -42,6 +42,8 @@ Each laboratory reflects my progress in understanding and applying cloud computi
 * Docker Compose
 * Multi-Tier Architecture
 * Infrastructure as Code (IaC)
+* Monitoring & Observability
+* Log Analysis
 * Technical Documentation
 
 I enjoy learning new technologies and improving my practical skills through hands-on activities and real-world cloud computing exercises.
@@ -72,6 +74,10 @@ I enjoy learning new technologies and improving my practical skills through hand
 * MariaDB
 * Object Storage
 * Infrastructure as Code (IaC)
+* System Monitoring
+* Container Observability
+* Log Analysis
+* curl
 * AWS
 * Microsoft Azure
 * Google Cloud Platform (GCP)
@@ -90,6 +96,7 @@ I enjoy learning new technologies and improving my practical skills through hand
 | Lab 4 | The Cloud-Native Engineer | ✅ |
 | Lab 5 | The Cloud Data Engineer | ✅ |
 | Lab 6 | The Cloud Deployment Engineer | ✅ |
+| Lab 7 | The Cloud Operations Engineer | ✅ |
 
 ---
 
@@ -462,6 +469,100 @@ docker-compose down
 
 ---
 
+# 📊 Laboratory 7 – The Cloud Operations Engineer
+
+**Mission:** The Cloud Operations Engineer
+
+This laboratory focused on **observability and monitoring**, the work of keeping a deployed application healthy. Acting as a Cloud Operations Engineer for a client preparing a large marketing campaign, I checked the health of the host server, deployed the client's Nginx web server in a container, generated test traffic, and used logs and real-time metrics to confirm the infrastructure could handle the expected visitors. The work was done on the **KillerCoda Playground**.
+
+The laboratory showed that deploying an application is only the first step: engineers use measurements and records, not guesses, to prove a system is working.
+
+### Activities
+
+* Checked the server's memory usage with `free -h`
+* Checked the root file system's disk capacity with `df -h`
+* Observed running processes and CPU load with `top`
+* Recorded a host baseline of the server's total RAM and root storage
+* Deployed an Nginx container named `client-website` on port `8080`
+* Simulated website visitors by sending HTTP requests with `curl`
+* Triggered an HTTP 404 error by requesting a page that does not exist
+* Retrieved application logs with `docker logs` and identified the 200 and 404 responses
+* Monitored real-time container CPU, memory, and network usage with `docker stats`
+* Recorded the container's memory and CPU usage
+* Documented the baseline, logs, and metrics using Markdown
+* Added screenshots as laboratory evidence
+
+### 🖥️ Host System Baseline
+
+| Resource | Value | Command Used |
+|---|---|---|
+| Total RAM | 1.9Gi | `free -h` |
+| Root (/) Storage Capacity | 19G | `df -h` |
+
+### 📈 Monitoring Commands
+
+| Command | Purpose |
+|---|---|
+| `free -h` | Displays total, used, and available memory in readable units. |
+| `df -h` | Displays disk capacity and usage for each file system. |
+| `top` | Shows running processes and CPU load in real time. |
+| `docker run -d -p 8080:80 --name client-website nginx` | Starts the client's Nginx container in the background and maps host port `8080` to container port `80`. |
+| `curl http://localhost:8080` | Simulates a visitor requesting the home page. |
+| `curl http://localhost:8080/hidden-admin-page` | Simulates a visitor requesting a page that does not exist. |
+| `docker logs client-website` | Displays the application logs from the container. |
+| `docker stats` | Shows live CPU, memory, and network usage for running containers. |
+
+### 🌐 Simulated Traffic and Log Results
+
+| Request | HTTP Status |
+|---|---|
+| Home page (`/`), sent three times | `200 OK` |
+| `/hidden-admin-page` | `404 Not Found` |
+
+### 📋 Container Metrics
+
+| Container | Memory Usage | CPU % |
+|---|---|---|
+| `client-website` | 2.773MiB | 0.00% |
+
+### 🔍 Logs vs. Metrics
+
+| | Logs | Metrics |
+|---|---|---|
+| What they show | Individual events, such as a request that returned a `404` | Numerical measurements, such as CPU, memory, and network usage |
+| Command used | `docker logs client-website` | `docker stats` |
+| Answers the question | What happened? | How is the container performing? |
+
+### 🔄 Monitoring Workflow
+
+```text
+Check Host Baseline (RAM, Disk, CPU)
+              ↓
+Deploy Nginx Container
+              ↓
+Generate Traffic (200 and 404)
+              ↓
+Review Application Logs
+              ↓
+Review Real-Time Container Metrics
+```
+
+### Skills Practiced
+
+* System Monitoring
+* Linux Command Line
+* Container Observability
+* Log Analysis
+* Docker
+* Nginx
+* HTTP Status Codes
+* Troubleshooting
+* curl
+* Technical Documentation
+* GitHub
+
+---
+
 # 🔄 Virtual Machines vs. Containers
 
 | Category | Virtual Machines | Containers |
@@ -493,6 +594,8 @@ Cloud storage showed me that not all data is stored the same way. Block, file, a
 
 Docker Compose showed me that real applications are usually made of several connected containers. Describing the whole environment in one YAML file made the deployment easier to repeat and review than typing separate commands for each container.
 
+Monitoring and observability showed me that running an application is not enough: its health has to be measured. Checking the host's memory and disk, reading container logs, and watching real-time metrics gave me evidence of how a system behaves instead of assumptions.
+
 ### Important Cloud Computing Concepts
 
 * Cloud Infrastructure
@@ -508,6 +611,9 @@ Docker Compose showed me that real applications are usually made of several conn
 * Multi-Tier Architecture
 * Docker Compose
 * Infrastructure as Code (IaC)
+* Monitoring and Observability
+* Logs and Metrics
+* HTTP Status Codes
 * Cloud Migration
 * Scalability
 * Cloud-Native Technologies
@@ -542,6 +648,10 @@ This portfolio demonstrates my progression through hands-on cloud computing labo
 ✅ Docker Compose File Creation  
 ✅ Nextcloud and MariaDB Deployment  
 ✅ Infrastructure as Code Fundamentals  
+✅ Host System Baseline Monitoring  
+✅ Web Traffic Simulation  
+✅ Container Log Analysis  
+✅ Real-Time Container Metrics  
 ✅ Git & GitHub  
 ✅ Technical Documentation  
 
@@ -568,6 +678,9 @@ This portfolio demonstrates my progression through hands-on cloud computing labo
 * **MinIO**
 * **Nextcloud**
 * **MariaDB**
+* **curl**
+* **Linux Monitoring Tools (`free`, `df`, `top`)**
+* **Docker Monitoring Tools (`docker logs`, `docker stats`)**
 * **Amazon Web Services (AWS)**
 * **Microsoft Azure**
 * **Google Cloud Platform (GCP)**
@@ -619,6 +732,21 @@ CCM101-aperado/
 │   ├── docker-compose-guide.md
 │   └── reflection.md
 │
+├── Laboratory-07-Cloud-Operations-Engineer/
+│   ├── screenshots/
+│   │   ├── memory-check.png
+│   │   ├── disk-check.png
+│   │   ├── install-nginx.png
+│   │   ├── simulation1.png
+│   │   ├── simulation2.png
+│   │   ├── docker-logs.png
+│   │   └── container-metrics.png
+│   │
+│   ├── README.md
+│   ├── system-baseline-report.md
+│   ├── container-observability.md
+│   └── reflection.md
+│
 └── README.md
 ```
 
@@ -626,7 +754,7 @@ CCM101-aperado/
 
 # 🎯 Learning Journey
 
-My CCM101 Cloud Computing portfolio documents my progression from fundamental Linux concepts to cloud infrastructure, multi-cloud environments, cloud-native technologies, cloud storage, and multi-container deployment.
+My CCM101 Cloud Computing portfolio documents my progression from fundamental Linux concepts to cloud infrastructure, multi-cloud environments, cloud-native technologies, cloud storage, multi-container deployment, and system monitoring.
 
 ### Learning Progression
 
@@ -648,9 +776,11 @@ Cloud-Native Technologies
 Cloud Storage & Object Storage
        ↓
 Docker Compose & Infrastructure as Code
+       ↓
+Monitoring & Observability
 ```
 
-Each laboratory has provided hands-on experience that builds upon the previous activities. The progression has helped me develop a broader understanding of how modern cloud infrastructure is designed, deployed, managed, and documented.
+Each laboratory has provided hands-on experience that builds upon the previous activities. The progression has helped me develop a broader understanding of how modern cloud infrastructure is designed, deployed, managed, monitored, and documented.
 
 ---
 
