@@ -1,0 +1,11 @@
+# 🔎 Reflection
+
+During this laboratory activity, I learned how to monitor server resources, deploy a website using Docker, generate HTTP requests, and examine application logs and container performance. These tasks helped me understand how monitoring and troubleshooting are important in maintaining a reliable web application.
+
+First, checking the host server's resources is important even when containers are running properly because they depend on the server's available CPU, memory, and disk space. If these resources become insufficient, the application may slow down or stop responding. In this activity, I used `top` to observe running processes, `free -h` to check memory usage, and `df -h` to examine disk capacity. These commands helped me understand the importance of monitoring both the host and its containers.
+
+Second, the `docker logs` command helps identify problems by displaying events and requests recorded by the application. I used `docker logs client-website` to examine the logs from my Nginx container. My screenshots showed successful HTTP requests with status code 200 and a request to `/hidden-admin-page` that returned a 404 error because the requested page was missing. This demonstrated how logs can help identify failed requests and guide further troubleshooting.
+
+Third, logs and metrics provide different types of information. Logs record specific events and errors, while metrics provide numerical measurements of performance. I used `docker logs client-website` to investigate HTTP requests and `docker stats` to check CPU usage, memory consumption, and network activity. Both are useful because logs help explain what happened, while metrics help show how the container is performing.
+
+Finally, this activity improved my Linux and Docker troubleshooting skills. I learned how to check system resources, test a website using `curl`, investigate errors, and monitor a running container. I also realized that documenting results with screenshots and Markdown makes technical work easier to review and explain. Overall, this laboratory gave me a better understanding of how cloud operations engineers use monitoring tools to maintain application reliability.
