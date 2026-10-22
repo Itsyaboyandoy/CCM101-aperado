@@ -20,7 +20,7 @@ Instructor: Cledmar N. Badongen
 
 # 👨‍💻 About
 
-This repository serves as my portfolio for **CCM101 – Cloud Computing**, containing laboratory activities, Linux exercises, Git and GitHub activities, cloud computing research, cloud platform comparisons, Docker exercises, containerization activities, object storage deployment, and technical documentation completed throughout the semester.
+This repository serves as my portfolio for **CCM101 – Cloud Computing**, containing laboratory activities, Linux exercises, Git and GitHub activities, cloud computing research, cloud platform comparisons, Docker exercises, containerization activities, object storage deployment, multi-container deployment with Docker Compose, and technical documentation completed throughout the semester.
 
 Each laboratory reflects my progress in understanding and applying cloud computing concepts through hands-on activities.
 
@@ -39,6 +39,9 @@ Each laboratory reflects my progress in understanding and applying cloud computi
 * Cloud-Native Technologies
 * Cloud Storage
 * Object Storage
+* Docker Compose
+* Multi-Tier Architecture
+* Infrastructure as Code (IaC)
 * Technical Documentation
 
 I enjoy learning new technologies and improving my practical skills through hands-on activities and real-world cloud computing exercises.
@@ -53,16 +56,22 @@ I enjoy learning new technologies and improving my practical skills through hand
 * GitHub
 * Bash
 * Shell Commands
+* Nano
 * Cloud Computing
 * Cloud Infrastructure
 * Cloud Architecture
 * Networking
 * Cloud Migration
 * Docker
+* Docker Compose
+* YAML
 * Containers
 * Nginx
 * MinIO
+* Nextcloud
+* MariaDB
 * Object Storage
+* Infrastructure as Code (IaC)
 * AWS
 * Microsoft Azure
 * Google Cloud Platform (GCP)
@@ -80,6 +89,7 @@ I enjoy learning new technologies and improving my practical skills through hand
 | Lab 3 | Multi-Cloud Explorer | ✅ |
 | Lab 4 | The Cloud-Native Engineer | ✅ |
 | Lab 5 | The Cloud Data Engineer | ✅ |
+| Lab 6 | The Cloud Deployment Engineer | ✅ |
 
 ---
 
@@ -369,6 +379,89 @@ Object Stored in MinIO
 
 ---
 
+# 🧩 Laboratory 6 – The Cloud Deployment Engineer
+
+**Mission:** The Cloud Deployment Engineer
+
+This laboratory moved from deploying single containers to deploying a **multi-tier application**. Acting as a cloud deployment engineer for a university client that wanted its own private cloud storage system, I used **Docker Compose** to define and deploy a two-tier **Nextcloud** and **MariaDB** stack on the **KillerCoda Playground** with a single command.
+
+The laboratory introduced **Infrastructure as Code (IaC)**: instead of typing a separate command for each container, the whole environment was described in one `docker-compose.yml` file that can be reviewed, repeated, and shared.
+
+### Activities
+
+* Defined a two-tier architecture with a web/application tier and a database tier
+* Explained why the tiers run in separate containers
+* Created a project directory and a `docker-compose.yml` file using the `nano` text editor
+* Defined two services, `app` (Nextcloud) and `database` (MariaDB 10.6), in YAML
+* Connected the app to the database using the `MYSQL_HOST` environment variable
+* Mapped host port `8080` to container port `80`
+* Deployed both containers with `docker-compose up -d`
+* Verified the running containers with `docker-compose ps`
+* Accessed the Nextcloud setup page through KillerCoda port forwarding
+* Shut down the stack with `docker-compose down`
+* Documented the Compose file and deployment using Markdown
+* Added screenshots as laboratory evidence
+
+### 🏗️ Two-Tier Architecture
+
+| Tier | Service | Image | Role |
+|---|---|---|---|
+| Web/Application | `app` | `nextcloud` | Serves the web interface and handles user requests |
+| Database | `database` | `mariadb:10.6` | Stores user accounts and file metadata |
+
+```text
+Browser
+   ↓
+Host Port 8080
+   ↓
+app (Nextcloud) — container port 80
+   ↓  MYSQL_HOST=database
+database (MariaDB) — internal port 3306
+```
+
+### 🐳 Docker Compose Commands
+
+| Command | Purpose |
+|---|---|
+| `mkdir nextcloud-deployment` | Creates the project directory. |
+| `cd nextcloud-deployment` | Moves into the project directory. |
+| `nano docker-compose.yml` | Opens the text editor to create the Compose file. |
+| `cat docker-compose.yml` | Displays the file to check its contents and indentation. |
+| `docker-compose up -d` | Pulls the images and starts all services in the background. |
+| `docker-compose ps` | Lists the containers in the project and their state. |
+| `docker-compose down` | Stops and removes the containers and the project network. |
+
+### 🔄 Deployment Lifecycle
+
+```text
+Write docker-compose.yml
+          ↓
+docker-compose up -d
+          ↓
+Verify with docker-compose ps
+          ↓
+Access Nextcloud on Port 8080
+          ↓
+docker-compose down
+```
+
+### Skills Practiced
+
+* Docker Compose
+* YAML
+* Infrastructure as Code (IaC)
+* Multi-Tier Architecture
+* Nextcloud
+* MariaDB
+* Environment Variables
+* Port Mapping
+* Linux
+* Nano
+* Technical Documentation
+* GitHub
+
+---
+
 # 🔄 Virtual Machines vs. Containers
 
 | Category | Virtual Machines | Containers |
@@ -398,6 +491,8 @@ Cloud-native technologies such as Docker introduced another approach to applicat
 
 Cloud storage showed me that not all data is stored the same way. Block, file, and object storage each serve different needs, and object storage is well suited for large amounts of unstructured data such as user-uploaded photos because it scales easily and is accessed over the web.
 
+Docker Compose showed me that real applications are usually made of several connected containers. Describing the whole environment in one YAML file made the deployment easier to repeat and review than typing separate commands for each container.
+
 ### Important Cloud Computing Concepts
 
 * Cloud Infrastructure
@@ -410,6 +505,9 @@ Cloud storage showed me that not all data is stored the same way. Block, file, a
 * Virtual Machines
 * Containers
 * Docker
+* Multi-Tier Architecture
+* Docker Compose
+* Infrastructure as Code (IaC)
 * Cloud Migration
 * Scalability
 * Cloud-Native Technologies
@@ -440,6 +538,10 @@ This portfolio demonstrates my progression through hands-on cloud computing labo
 ✅ Cloud Storage Types Research  
 ✅ MinIO Object Storage Deployment  
 ✅ Bucket Creation and File Upload  
+✅ Multi-Tier Architecture Research  
+✅ Docker Compose File Creation  
+✅ Nextcloud and MariaDB Deployment  
+✅ Infrastructure as Code Fundamentals  
 ✅ Git & GitHub  
 ✅ Technical Documentation  
 
@@ -459,9 +561,13 @@ This portfolio demonstrates my progression through hands-on cloud computing labo
 * **GitHub**
 * **Markdown**
 * **Bash**
+* **Nano**
 * **Docker**
+* **Docker Compose**
 * **Nginx**
 * **MinIO**
+* **Nextcloud**
+* **MariaDB**
 * **Amazon Web Services (AWS)**
 * **Microsoft Azure**
 * **Google Cloud Platform (GCP)**
@@ -502,14 +608,25 @@ CCM101-aperado/
 │   ├── minio-deployment.md
 │   └── reflection.md
 │
+├── Laboratory-06-Cloud-Deployment-Engineer/
+│   ├── screenshots/
+│   │   ├── compose-deployment.png
+│   │   ├── nextcloud-web.png
+│   │   └── compose-teardown.png
+│   │
+│   ├── README.md
+│   ├── multi-tier-architecture.md
+│   ├── docker-compose-guide.md
+│   └── reflection.md
+│
 └── README.md
-````
+```
 
 ---
 
 # 🎯 Learning Journey
 
-My CCM101 Cloud Computing portfolio documents my progression from fundamental Linux concepts to cloud infrastructure, multi-cloud environments, cloud-native technologies, and cloud storage.
+My CCM101 Cloud Computing portfolio documents my progression from fundamental Linux concepts to cloud infrastructure, multi-cloud environments, cloud-native technologies, cloud storage, and multi-container deployment.
 
 ### Learning Progression
 
@@ -529,6 +646,8 @@ Containers & Docker
 Cloud-Native Technologies
        ↓
 Cloud Storage & Object Storage
+       ↓
+Docker Compose & Infrastructure as Code
 ```
 
 Each laboratory has provided hands-on experience that builds upon the previous activities. The progression has helped me develop a broader understanding of how modern cloud infrastructure is designed, deployed, managed, and documented.
@@ -560,3 +679,5 @@ As I complete additional laboratory activities, I will continue improving this p
 **CCM101 – Cloud Computing**
 
 **Ashley B. Perado | BSIT | University of Eastern Pangasinan**
+
+</div>
