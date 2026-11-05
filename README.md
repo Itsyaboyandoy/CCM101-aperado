@@ -1,4 +1,4 @@
-<div align="center">
+ <div align="center">
 
 <img src="https://github.com/Itsyaboyandoy.png" width="180"/>
 
@@ -20,7 +20,7 @@ Instructor: Cledmar N. Badongen
 
 # 👨‍💻 About
 
-This repository serves as my portfolio for **CCM101 – Cloud Computing**, containing laboratory activities, Linux exercises, Git and GitHub activities, cloud computing research, cloud platform comparisons, Docker exercises, containerization activities, object storage deployment, multi-container deployment with Docker Compose, system monitoring and observability, and technical documentation completed throughout the semester.
+This repository serves as my portfolio for **CCM101 – Cloud Computing**, containing laboratory activities, Linux exercises, Git and GitHub activities, cloud computing research, cloud platform comparisons, Docker exercises, containerization activities, object storage deployment, multi-container deployment with Docker Compose, system monitoring and observability, cloud security, firewall configuration, and technical documentation completed throughout the semester.
 
 Each laboratory reflects my progress in understanding and applying cloud computing concepts through hands-on activities.
 
@@ -44,6 +44,11 @@ Each laboratory reflects my progress in understanding and applying cloud computi
 * Infrastructure as Code (IaC)
 * Monitoring & Observability
 * Log Analysis
+* Cloud Security
+* Cybersecurity Fundamentals
+* Firewall Configuration
+* Network Security
+* Access Control
 * Technical Documentation
 
 I enjoy learning new technologies and improving my practical skills through hands-on activities and real-world cloud computing exercises.
@@ -78,6 +83,14 @@ I enjoy learning new technologies and improving my practical skills through hand
 * Container Observability
 * Log Analysis
 * curl
+* UFW (Uncomplicated Firewall)
+* Firewall Management
+* Network Security
+* Cloud Security
+* Access Control
+* Principle of Least Privilege
+* Attack Surface Analysis
+* Default Deny Policy
 * AWS
 * Microsoft Azure
 * Google Cloud Platform (GCP)
@@ -97,6 +110,7 @@ I enjoy learning new technologies and improving my practical skills through hand
 | Lab 5 | The Cloud Data Engineer | ✅ |
 | Lab 6 | The Cloud Deployment Engineer | ✅ |
 | Lab 7 | The Cloud Operations Engineer | ✅ |
+| Lab 8 | The Cloud Security Engineer | ✅ |
 
 ---
 
@@ -563,6 +577,120 @@ Review Real-Time Container Metrics
 
 ---
 
+# 🛡️ Laboratory 8 – The Cloud Security Engineer
+
+**Mission:** The Cloud Security Engineer
+
+This laboratory focused on securing a Linux server using a host-based firewall. Acting as a Cloud Security Engineer for CloudNova Technologies, I configured the **Uncomplicated Firewall (UFW)** on the **KillerCoda Ubuntu 24.04 Playground** to control incoming and outgoing network connections.
+
+The activity involved allowing SSH access, applying a Default Deny policy, enabling the firewall, and allowing TCP port `8080` for the Nginx web application. I also verified the firewall configuration and tested the application using Docker and `curl`.
+
+### Activities
+
+* Explored the concepts of the Principle of Least Privilege (PoLP) and Attack Surface
+* Configured UFW on Ubuntu 24.04
+* Allowed SSH connections before enabling the firewall
+* Set the default incoming policy to deny
+* Set the default outgoing policy to allow
+* Enabled the UFW firewall
+* Allowed incoming TCP traffic through port `8080`
+* Checked firewall status and configuration using `sudo ufw status verbose`
+* Displayed numbered firewall rules using `sudo ufw status numbered`
+* Ran an Nginx Docker container named `secure-web-app`
+* Checked the running Docker container using `docker ps`
+* Tested the Nginx application using `curl http://localhost:8080`
+* Created Markdown documentation for the security audit, firewall configuration, and reflection
+* Committed and pushed the completed Lab 8 files to GitHub
+
+### 🔐 Firewall Configuration
+
+| Command | Purpose |
+|---|---|
+| `sudo ufw allow ssh` | Allows SSH connections for remote server administration. |
+| `sudo ufw default deny incoming` | Blocks incoming connections unless specifically allowed. |
+| `sudo ufw default allow outgoing` | Allows outgoing connections by default. |
+| `sudo ufw enable` | Activates the UFW firewall. |
+| `sudo ufw allow 8080/tcp` | Allows incoming TCP connections through port `8080`. |
+| `sudo ufw status verbose` | Displays firewall status and default policies. |
+| `sudo ufw status numbered` | Displays firewall rules with assigned numbers. |
+
+### 🐳 Nginx Docker Deployment
+
+| Item | Detail |
+|---|---|
+| Operating System | Ubuntu 24.04 |
+| Environment | KillerCoda Playground |
+| Container Name | `secure-web-app` |
+| Docker Image | `nginx` |
+| Host Port | `8080` |
+| Container Port | `80` |
+| Protocol | TCP |
+
+### 🖥️ Docker Commands
+
+| Command | Purpose |
+|---|---|
+| `docker run -d -p 8080:80 --name secure-web-app nginx` | Runs an Nginx container in detached mode and maps host port `8080` to container port `80`. |
+| `docker ps` | Displays currently running Docker containers. |
+| `curl http://localhost:8080` | Sends an HTTP request to verify that the Nginx application responds correctly. |
+
+### ⚠️ Deployment Note
+
+The initial Docker run command reported that the container name was already in use. I checked `docker ps` and confirmed that the existing `secure-web-app` container was already running with the correct port mapping.
+
+The `curl` command returned the default Nginx welcome page, confirming that the application was responding successfully.
+
+### 🔍 Security Concepts Applied
+
+| Concept | Description |
+|---|---|
+| Principle of Least Privilege (PoLP) | Gives users and services only the permissions they need. |
+| Attack Surface | Refers to possible entry points that attackers could use to access a system. |
+| Default Deny Policy | Blocks incoming connections unless they are explicitly allowed. |
+| Host-Based Firewall | Controls network traffic entering and leaving an individual server. |
+| Port Management | Allows only the network ports required for specific services. |
+
+### 🔄 Security Configuration Workflow
+
+```text
+Allow SSH Access
+       ↓
+Set Default Deny Incoming
+       ↓
+Allow Default Outgoing
+       ↓
+Enable UFW Firewall
+       ↓
+Allow TCP Port 8080
+       ↓
+Check Firewall Rules
+       ↓
+Verify Nginx Docker Container
+       ↓
+Test Application Using curl
+```
+
+### Skills Practiced
+
+* Cloud Security
+* Cybersecurity Fundamentals
+* UFW Firewall Configuration
+* Network Security
+* Access Control
+* Principle of Least Privilege
+* Attack Surface Analysis
+* Default Deny Policy
+* Docker
+* Nginx
+* Port Mapping
+* Linux Command Line
+* Ubuntu 24.04
+* curl
+* Git and GitHub
+* Markdown Documentation
+
+---
+
 # 🔄 Virtual Machines vs. Containers
 
 | Category | Virtual Machines | Containers |
@@ -596,6 +724,8 @@ Docker Compose showed me that real applications are usually made of several conn
 
 Monitoring and observability showed me that running an application is not enough: its health has to be measured. Checking the host's memory and disk, reading container logs, and watching real-time metrics gave me evidence of how a system behaves instead of assumptions.
 
+Cloud security introduced me to the importance of protecting server infrastructure through firewall configuration and access control. Using UFW, I learned how to apply a Default Deny policy, allow only the required network ports, and maintain remote SSH access. I also learned that reducing unnecessary network exposure helps minimize the attack surface and improves the overall security of a cloud environment.
+
 ### Important Cloud Computing Concepts
 
 * Cloud Infrastructure
@@ -614,6 +744,13 @@ Monitoring and observability showed me that running an application is not enough
 * Monitoring and Observability
 * Logs and Metrics
 * HTTP Status Codes
+* Cloud Security
+* Cybersecurity Fundamentals
+* Firewall Configuration
+* Default Deny Policy
+* Principle of Least Privilege
+* Attack Surface
+* Access Control
 * Cloud Migration
 * Scalability
 * Cloud-Native Technologies
@@ -652,6 +789,14 @@ This portfolio demonstrates my progression through hands-on cloud computing labo
 ✅ Web Traffic Simulation  
 ✅ Container Log Analysis  
 ✅ Real-Time Container Metrics  
+✅ Principle of Least Privilege  
+✅ Attack Surface Analysis  
+✅ UFW Firewall Configuration  
+✅ Default Deny Policy  
+✅ SSH Access Management  
+✅ TCP Port Management  
+✅ Firewall Rule Verification  
+✅ Nginx Application Testing  
 ✅ Git & GitHub  
 ✅ Technical Documentation  
 
@@ -679,6 +824,7 @@ This portfolio demonstrates my progression through hands-on cloud computing labo
 * **Nextcloud**
 * **MariaDB**
 * **curl**
+* **UFW (Uncomplicated Firewall)**
 * **Linux Monitoring Tools (`free`, `df`, `top`)**
 * **Docker Monitoring Tools (`docker logs`, `docker stats`)**
 * **Amazon Web Services (AWS)**
@@ -747,6 +893,18 @@ CCM101-aperado/
 │   ├── container-observability.md
 │   └── reflection.md
 │
+├── Laboratory-08-Cloud-Security-Engineer/
+│   ├── screenshots/
+│   │   ├── firewall-configuration.png
+│   │   ├── nginx-deployment.png
+│   │   ├── firewall-rules.png
+│   │   └── github-upload.png
+│   │
+│   ├── README.md
+│   ├── firewall-configuration.md
+│   ├── security-audit-report.md
+│   └── reflection.md
+│
 └── README.md
 ```
 
@@ -754,7 +912,7 @@ CCM101-aperado/
 
 # 🎯 Learning Journey
 
-My CCM101 Cloud Computing portfolio documents my progression from fundamental Linux concepts to cloud infrastructure, multi-cloud environments, cloud-native technologies, cloud storage, multi-container deployment, and system monitoring.
+My CCM101 Cloud Computing portfolio documents my progression from fundamental Linux concepts to cloud infrastructure, multi-cloud environments, cloud-native technologies, cloud storage, multi-container deployment, system monitoring, and cloud security.
 
 ### Learning Progression
 
@@ -778,9 +936,11 @@ Cloud Storage & Object Storage
 Docker Compose & Infrastructure as Code
        ↓
 Monitoring & Observability
+       ↓
+Cloud Security & Firewall Management
 ```
 
-Each laboratory has provided hands-on experience that builds upon the previous activities. The progression has helped me develop a broader understanding of how modern cloud infrastructure is designed, deployed, managed, monitored, and documented.
+Each laboratory has provided hands-on experience that builds upon the previous activities. The progression has helped me develop a broader understanding of how modern cloud infrastructure is designed, deployed, managed, monitored, secured, and documented.
 
 ---
 
