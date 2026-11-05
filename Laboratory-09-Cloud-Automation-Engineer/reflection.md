@@ -1,0 +1,11 @@
+# 📝 Mission Reflection
+
+Throughout this laboratory activity, I learned why automation is important in cloud computing. Managing multiple servers and performing repetitive tasks manually can take a lot of time and may lead to mistakes. With automation, tasks such as creating backups can run automatically and help reduce the risk of data loss. However, automation also has risks. For example, an incorrect command in a script could damage or delete important files. This is why scripts should be tested carefully before being used in actual systems.
+
+Creating a Bash script was different from working with Docker Compose. In this activity, I used Bash commands to automate the process of creating and compressing a backup of application data. I also learned how to use variables to make the script easier to manage. In my previous Docker activities, I used YAML files to define and manage application containers and services. Both technologies help automate cloud-related tasks, but they serve different purposes.
+
+Looking back at my previous laboratory activities, my understanding of cloud computing has improved. I started by learning the basics of cloud services and gradually explored virtual machines, containers, networking, storage, deployment, and security. I also became more comfortable using Linux commands and documenting my work through GitHub. These activities helped me understand how different cloud technologies work together in real-world situations.
+
+Among the cloud engineering roles I explored, I enjoyed being a Cloud Deployment Engineer the most because I had the opportunity to work with Docker Compose and deploy applications. I liked learning how different services work together and how containers make application deployment easier. This experience encouraged me to continue improving my skills in Linux, Docker, and cloud infrastructure.
+
+Overall, this semester taught me that becoming a cloud engineer requires continuous learning and hands-on practice. I know I still have a lot to learn, but I am more confident in using cloud tools and solving technical problems than when I started. I look forward to applying these skills in future projects and improving my knowledge of cloud computing.
